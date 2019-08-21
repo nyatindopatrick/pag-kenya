@@ -1,0 +1,110 @@
+<div class="container register">
+  <div class="row">
+      <div class="col-md-3 register-left">
+          <img src="https://i.ibb.co/xDQrFpn/PAGworld.png" alt=""/>
+          <h3>Welcome to PAG-KENYA</h3>
+          <p></p>
+          <h5>Have an accont?</h5>
+          <a href="/users/login"> <input type="submit" name="" value="Login"/></a><br/>
+      </div>
+      <div class="col-md-9 register-right">
+          <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <h3 class="register-heading">Register</h3>
+                  <% include ./partials/messages %>
+                  <form action="/users/register" method="POST" enctype="multipart/form-data" class="row register-form">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label  for="name">Name</label>
+                              <input required type="name" id="name" name="name" class="form-control" placeholder="Enter Name"
+                              value="<%= typeof name != 'undefined' ? name : '' %>"  />
+                          </div>
+                          <div class="form-group">
+                              <label  for="username">Username</label>
+                              <input required type="username" id="username" name="username" class="form-control" placeholder="Enter Username"
+                              value="<%= typeof username != 'undefined' ? username : '' %>" />
+                          </div>
+                          <div class="form-group">
+                              <label  for="phoneNo">Phone Number</label>
+                              <input required type="number" id="phoneNo" name="phoneNo" class="form-control" placeholder="Enter Phone Number"
+                              value="<%= typeof phoneNo != 'undefined' ? phoneNo : '' %>" />
+                          </div>
+                          <div class="form-group">
+                              <label  for="idNo">ID Number</label>
+                              <input required type="number" id="idNo" name="idNo" class="form-control" placeholder="Enter ID Number"
+                              value="<%= typeof idNo != 'undefined' ? idNo : '' %>" />
+                          </div>
+
+                        <div class="form-group">
+                            <label  for="dob">Date of Birth</label>
+                          <input required type="date" id="dob" name="dob" class="form-control" placeholder="Enter Date of Birth"
+                          value="<%= typeof dob != 'undefined' ? dob : '' %>" />
+                      </div>
+                      <div class="form-group">
+                          <label  for="station">Enter Station</label>
+                          <input required type="station" id="station" name="station" class="form-control" placeholder="Enter Station"
+                          value="<%= typeof station != 'undefined' ? station : '' %>" />
+                      </div>
+                      <div class="form-group">
+                          <label  for="password2">County</label>
+                        <input required type="county" id="county" name="county" class="form-control" placeholder="Enter County"
+                        value="<%= typeof county != 'undefined' ? county : '' %>" />
+                      </div>
+                        <div class="form-group">
+                            <label  for="profile">Upload Profile Photo</label>
+                          <input required type="file" id="profile" name="profile" class="form-control"
+                          value="<%= typeof profile != 'undefined' ? profile : '' %>" />
+                      </div>
+                          <div class="form-group">
+                              <div class="maxl">
+                                  <label class="radio inline"> 
+                                      <input type="radio" id="gender" name="gender" value="Male">
+                                      <span> Male </span> 
+                                  </label>
+                                  <label class="radio inline"> 
+                                      <input type="radio" id="gender" name="gender" value="Female" >
+                                      <span>Female </span> 
+                                  </label>
+                                  
+            
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label  for="education">Highest Education Level Attained</label>
+                              <input required type="education" id="education" name="education" class="form-control"
+                              placeholder="Masters/Degree/Diploma/High School etc."
+                              value="<%= typeof education != 'undefined' ? education : '' %>" />
+                          </div>
+                          <div class="form-group">
+                              <label  for="institution">Highest Education Institution Attended</label>
+                            <input required type="institution" id="institution" name="institution" class="form-control"
+                            placeholder="Enter Learning Institution Name"
+                            value="<%= typeof institution != 'undefined' ? institution : '' %>"  />
+                        </div>
+                          <div class="form-group">
+                              <label  for="email">Email</label>
+                            <input required type="email" id="email" name="email" class="form-control" placeholder="Enter Email"
+                            value="<%= typeof email != 'undefined' ? email : '' %>" />
+                        </div>
+                        <div class="form-group">
+                            <label  for="password">Create Password</label>
+                          <input required type="password" id="password" name="password" class="form-control" placeholder="Create Password"
+                          value="<%= typeof password != 'undefined' ? password : '' %>" />
+                      </div>
+                      <div class="form-group">
+                          <label  for="password2">Confirm Password</label>
+                        <input required type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password"
+                        value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+                    </div>
+                          <input type="submit" class="btnRegister"  value="Register"/>
+                       
+                      </div>
+                    </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
