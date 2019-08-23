@@ -147,7 +147,7 @@ router.post("/register", upload.single('profile'), (req, res, next) => {
          doc.moveDown();
          doc.font('Times-Roman')
            .fontSize(16)
-           .text(`Name: ${newUser.name} \nUsername: ${newUser.username}\nEmail: ${newUser.email}\nPhone Number: ${newUser.phoneNo}\nID Number: ${newUser.idNo}\nGender: ${newUser.gender}\n Station: ${newUser.station}\nEducation: ${newUser.education}/nInstitution: ${newUser.institution}\nStation: ${newUser.station}\nCounty: ${newUser.county}`, {
+           .text(`Name: ${newUser.name} \nUsername: ${newUser.username}\nEmail: ${newUser.email}\nPhone Number: ${newUser.phoneNo}\nID Number: ${newUser.idNo}\nGender: ${newUser.gender}\nStation: ${newUser.station}\nEducation: ${newUser.education}\nInstitution: ${newUser.institution}\nStation: ${newUser.station}\nCounty: ${newUser.county}`, {
              width: 410,
              align: 'left'
            }

@@ -2105,3 +2105,28 @@ tbody {
 	content: counter(row) ". ";
 	/* Display the row */
   }
+
+  .offline-doc .page-header,
+.offline-free-doc .page-header {
+  height: 100vh !important;
+}
+
+.offline-doc .page-header:after,
+.offline-free-doc .page-header:after {
+  background: rgba(0, 0, 0, 0.5) !important;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.offline-doc .page-header .container,
+.offline-free-doc .page-header .container {
+  z-index: 3;
+}
+.header-filter {
+	position: relative;
