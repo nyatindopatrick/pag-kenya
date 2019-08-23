@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+require('dotenv').config();
+var mongo = require('mongodb').MongoClient;
+var assert = require('assert')
 // Load User model
 const User = require('../models/user');
 const multer = require('multer');
@@ -35,13 +38,14 @@ const upload = multer({
   fileFilter: fileFilter
 });
 
-const { forwardAuthenticated } = require('../config/auth');
+const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
 
 // Login Page
 router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
 
 // Register Page
 router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
+
 
 // Register
 router.post("/register", upload.single('profile'), (req, res, next) => {

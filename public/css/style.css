@@ -2092,3 +2092,16 @@ iframe {
   line-height: 1.428571429;
   color: #999;
 }
+
+
+tbody {
+	counter-reset: row;
+	/* Set the row counter to 0 */
+  }
+  
+  tbody tr::before {
+	counter-increment: row;
+	/* Increment the row counter*/
+	content: counter(row) ". ";
+	/* Display the row */
+  }
