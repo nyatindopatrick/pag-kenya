@@ -12,12 +12,29 @@ var nodemailer = require("nodemailer");
 var fs = require('fs');
 const PDFDocument = require('pdfkit');
 require('dotenv').config()
+
+//generate random ID
+function makeid(length) {
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/');
   },
+  //name file using unique ID
   filename: function (req, file, cb) {
-    cb(null, Math.floor(Math.random() * 100) + file.originalname);
+    if (file.mimetype === 'image/jpeg'){
+      cb(null, Math.floor(Math.random() * 100) + makeid(15)+".jpg");
+    }else {
+      cb(null, Math.floor(Math.random() * 100) + makeid(15)+".png");
+    }
+    
   }
 });
 
