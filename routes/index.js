@@ -14,32 +14,32 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
   })
 );
 
-router.get('/print', ensureAuthenticated, function(req, res, next) {
+router.get('/print', ensureAuthenticated, function (req, res, next) {
   User.find()
-  .exec()
-  .then(docs => {
-    const response = {
-      count: docs.length,
-      products: docs.map(doc => {
-        return {
-          name: doc.name,
-          riderPassportPhoto: doc.riderPassportPhoto,
-          _id: doc._id,
-          request: {
-            type: "GET",
-            url: doc._id
-          }
-        };
-      })
-    };
-    res.render("print", {docs: docs})
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({
-      error: err
+    .exec()
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        products: docs.map(doc => {
+          return {
+            name: doc.name,
+            riderPassportPhoto: doc.riderPassportPhoto,
+            _id: doc._id,
+            request: {
+              type: "GET",
+              url: doc._id
+            }
+          };
+        })
+      };
+      res.render("print", { docs: docs })
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
     });
-  });
 });
 
 

@@ -1,169 +1,167 @@
 <nav style="background: #992929 !important" class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-    <div class="container">
-        <a class="navbar-brand" href="/dashboard">PAG KENYA</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/dashboard">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
+  <div class="container">
+    <a class="navbar-brand" href="/dashboard">PAG KENYA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/dashboard">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="page-header header-filter" data-parallax="true"
+  style="background-image: url('https://i.ibb.co/JyYLkNF/cross.png');"></div>
+<div class="">
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <div class="card-title mb-4">
+            <div class="d-flex justify-content-start">
+              <div class="image-container">
+                <img src="<%=user.profile%>" id="imgProfile" style="width: 250px; height: 250px"
+                  class="img-thumbnail" />
+                <div class="middle">
+                  <input type="file" style="display: none;" id="profilePicture" name="file" />
+                </div>
+              </div>
+              <div class="userData ml-3">
+                <h2 class="d-block" style="font-size: 25px; font-weight: bold"><%=user.name%></h2>
+                <h6 class="d-block"> <%=user.gender%></h6>
+              </div>
+              <div class="ml-auto">
+                <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab"
+                    aria-controls="basicInfo" aria-selected="true">Basic Info</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/users/logout">Logout</a>
+                  <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab"
+                    aria-controls="connectedServices" aria-selected="false">Education</a>
                 </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('https://i.ibb.co/JyYLkNF/cross.png');"></div>
-<div class="">
-    
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                       
-                    <div class="card-title mb-4">
-                        <div class="d-flex justify-content-start">
-                            <div class="image-container">
-                                <img src="<%=user.profile%>" id="imgProfile" style="width: 250px; height: 250px"
-                                    class="img-thumbnail" />
-                                <div class="middle">
-                                    <input type="file" style="display: none;" id="profilePicture" name="file" />
-                                </div>
-                            </div>
-                            <div class="userData ml-3">
-                                <h2 class="d-block" style="font-size: 25px; font-weight: bold"><%=user.name%></h2>
-                                <h6 class="d-block"> <%=user.gender%></h6>
-                            </div>
-                            <div class="ml-auto">
-                                <input type="button" class="btn btn-primary d-none" id="btnDiscard"
-                                    value="Discard Changes" />
-                            </div>
-                        </div>
+              </ul>
+              <div class="tab-content ml-1" id="myTabContent">
+                <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+
+
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                      <label style="font-weight:bold;">Full Name</label>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo"
-                                        role="tab" aria-controls="basicInfo" aria-selected="true">Basic Info</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="connectedServices-tab" data-toggle="tab"
-                                        href="#connectedServices" role="tab" aria-controls="connectedServices"
-                                        aria-selected="false">Education</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content ml-1" id="myTabContent">
-                                <div class="tab-pane fade show active" id="basicInfo" role="tabpanel"
-                                    aria-labelledby="basicInfo-tab">
-
-
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Full Name</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            <%=user.name%>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">ID Number</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            <%=user.idNo%>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Phone Number</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            <%=user.phoneNo%>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Birth Date</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            <%=user.dob%>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Username</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            <%=user.username%>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Email</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            <%=user.email%>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">County</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            <%=user.county%>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Station</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            <%=user.station%>
-                                        </div>
-                                    </div>
-                                    <hr />
-
-                                </div>
-                                <div class="tab-pane fade" id="connectedServices" role="tabpanel"
-                                    aria-labelledby="ConnectedServices-tab">
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Highest Level of Education</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            <%=user.education%>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Institution</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            <%=user.institution%>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-md-8 col-6">
+                      <%=user.name%>
                     </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                      <label style="font-weight:bold;">ID Number</label>
+                    </div>
+                    <div class="col-md-8 col-6">
+                      <%=user.idNo%>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                      <label style="font-weight:bold;">Phone Number</label>
+                    </div>
+                    <div class="col-md-8 col-6">
+                      <%=user.phoneNo%>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                      <label style="font-weight:bold;">Birth Date</label>
+                    </div>
+                    <div class="col-md-8 col-6">
+                      <%=user.dob%>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                      <label style="font-weight:bold;">Username</label>
+                    </div>
+                    <div class="col-md-8 col-6">
+                      <%=user.username%>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                      <label style="font-weight:bold;">Email</label>
+                    </div>
+                    <div class="col-md-8 col-6">
+                      <%=user.email%>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                      <label style="font-weight:bold;">County</label>
+                    </div>
+                    <div class="col-md-8 col-6">
+                      <%=user.county%>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                      <label style="font-weight:bold;">Station</label>
+                    </div>
+                    <div class="col-md-8 col-6">
+                      <%=user.station%>
+                    </div>
+                  </div>
+                  <hr />
+
                 </div>
+                <div class="tab-pane fade" id="connectedServices" role="tabpanel"
+                  aria-labelledby="ConnectedServices-tab">
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                      <label style="font-weight:bold;">Highest Level of Education</label>
+                    </div>
+                    <div class="col-md-8 col-6">
+                      <%=user.education%>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                      <label style="font-weight:bold;">Institution</label>
+                    </div>
+                    <div class="col-md-8 col-6">
+                      <%=user.institution%>
+                    </div>
+                  </div>
+                  <hr />
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

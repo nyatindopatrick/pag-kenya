@@ -15,11 +15,11 @@ require('dotenv').config()
 
 //generate random ID
 function makeid(length) {
-  var result           = '';
-  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var result = '';
+  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   var charactersLength = characters.length;
-  for ( var i = 0; i < length; i++ ) {
-     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
 }
@@ -29,12 +29,12 @@ const storage = multer.diskStorage({
   },
   //name file using unique ID
   filename: function (req, file, cb) {
-    if (file.mimetype === 'image/jpeg'){
-      cb(null, Math.floor(Math.random() * 100) + makeid(15)+".jpg");
-    }else {
-      cb(null, Math.floor(Math.random() * 100) + makeid(15)+".png");
+    if (file.mimetype === 'image/jpeg') {
+      cb(null, Math.floor(Math.random() * 100) + makeid(15) + ".jpg");
+    } else {
+      cb(null, Math.floor(Math.random() * 100) + makeid(15) + ".png");
     }
-    
+
   }
 });
 
@@ -82,9 +82,9 @@ router.post("/register", upload.single('profile'), (req, res, next) => {
     education,
     institution
   } = req.body;
-  const  profile = req.file.path.substring(8);
+  const profile = req.file.path.substring(8);
   let errors = [];
- 
+
   if (!name || !email || !password || !password2 || !username || !phoneNo || !idNo || !dob || !gender || !station || !county
     || !education || !institution) {
     errors.push({ msg: 'Please enter all fields' });
@@ -121,9 +121,9 @@ router.post("/register", upload.single('profile'), (req, res, next) => {
           county,
           education,
           institution,
- 
+
         });
-      }  
+      }
       else {
         const newUser = new User({
           name,
@@ -139,9 +139,9 @@ router.post("/register", upload.single('profile'), (req, res, next) => {
           education,
           profile,
           institution
-          
+
         });
-       
+
 
         var transporter = nodemailer.createTransport({
           service: "gmail",
@@ -150,30 +150,30 @@ router.post("/register", upload.single('profile'), (req, res, next) => {
             pass: process.env.PASSCODE
           }
         });
-         // Create a document
-         const doc = new PDFDocument;
+        // Create a document
+        const doc = new PDFDocument;
 
-         doc.pipe(fs.createWriteStream('PAG-KENYA.pdf'));
- 
-         // Embed a font, set the font size, and render some text
-         doc.font('Times-Bold')
-           .fontSize(25)
-           .text('Pentecostal Assembies of God - Kenya', 100, 100);
- 
-         //Move down to next line
-         doc.moveDown();
-         doc.font('Times-Roman')
-           .fontSize(16)
-           .text(`Name: ${newUser.name} \nUsername: ${newUser.username}\nEmail: ${newUser.email}\nPhone Number: ${newUser.phoneNo}\nID Number: ${newUser.idNo}\nGender: ${newUser.gender}\nStation: ${newUser.station}\nEducation: ${newUser.education}\nInstitution: ${newUser.institution}\nStation: ${newUser.station}\nCounty: ${newUser.county}`, {
-             width: 410,
-             align: 'left'
-           }
-           );
- 
- 
-         // Finalize PDF file
-         doc.end();
- 
+        doc.pipe(fs.createWriteStream('PAG-KENYA.pdf'));
+
+        // Embed a font, set the font size, and render some text
+        doc.font('Times-Bold')
+          .fontSize(25)
+          .text('Pentecostal Assembies of God - Kenya', 100, 100);
+
+        //Move down to next line
+        doc.moveDown();
+        doc.font('Times-Roman')
+          .fontSize(16)
+          .text(`Name: ${newUser.name} \nUsername: ${newUser.username}\nEmail: ${newUser.email}\nPhone Number: ${newUser.phoneNo}\nID Number: ${newUser.idNo}\nGender: ${newUser.gender}\nStation: ${newUser.station}\nEducation: ${newUser.education}\nInstitution: ${newUser.institution}\nStation: ${newUser.station}\nCounty: ${newUser.county}`, {
+            width: 410,
+            align: 'left'
+          }
+          );
+
+
+        // Finalize PDF file
+        doc.end();
+
         var mailOptions = {
           from: "patrickotieno39@gmail.com",
           to: newUser.email,
